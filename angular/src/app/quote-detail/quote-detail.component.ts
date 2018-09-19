@@ -27,22 +27,20 @@ export class QuoteDetailComponent implements OnInit {
     let obs = this._httpService.GetAuthor(this.AuthorId);
     obs.subscribe(data=>
       {console.log("Get Author Quote Success",data);
-      this.AuthorQuotes = data['Quotes'];
+      this.AuthorQuotes = data;
     })
-  }
-  DeleteQuote(id){
   }
 
   VoteUp(id){
     console.log(this.AuthorQuotes);
     console.log(id);
     
-    for(var i = 0; i<this.AuthorQuotes.length; i++){
-      console.log(this.AuthorQuotes[i]);
+    for(var i = 0; i<this.AuthorQuotes['Quotes'].length; i++){
+      console.log(this.AuthorQuotes['Quotes'][i]);
       
-      if(this.AuthorQuotes[i]['_id'] == id){
-        this.AuthorQuotes[i]['Vote']+=1;
-        console.log(this.AuthorQuotes[i]['Vote']);
+      if(this.AuthorQuotes['Quotes'][i]['_id'] == id){
+        this.AuthorQuotes['Quotes'][i]['Vote']+=1;
+        console.log(this.AuthorQuotes['Quotes'][i]['Vote']);
         console.log(this.AuthorQuotes);
       }
     }
@@ -54,28 +52,28 @@ export class QuoteDetailComponent implements OnInit {
     console.log(this.AuthorQuotes);
     console.log(id);
     
-    for(var i = 0; i<this.AuthorQuotes.length; i++){
+    for(var i = 0; i<this.AuthorQuotes['Quotes'].length; i++){
       console.log(this.AuthorQuotes[i]);
       
-      if(this.AuthorQuotes[i]['_id'] == id){
-        this.AuthorQuotes[i]['Vote']-=1;
-        console.log(this.AuthorQuotes[i]['Vote']);
+      if(this.AuthorQuotes['Quotes'][i]['_id'] == id){
+        this.AuthorQuotes['Quotes'][i]['Vote']-=1;
+        console.log(this.AuthorQuotes['Quotes'][i]['Vote']);
         console.log(this.AuthorQuotes);
       }
     }
     let obs = this._httpService.EditAuthor(this.AuthorId,this.AuthorQuotes)
-        obs.subscribe(data=>console.log("Vote up success", data));
+        obs.subscribe(data=>console.log("Vote down success", data));
   }
   Delete(id){
     console.log(this.AuthorQuotes);
     console.log(id);
     
-    for(var i = 0; i<this.AuthorQuotes.length; i++){
-      console.log(this.AuthorQuotes[i]);
+    for(var i = 0; i<this.AuthorQuotes['Quotes'].length; i++){
+      console.log(this.AuthorQuotes['Quotes'][i]);
       
-      if(this.AuthorQuotes[i]['_id'] == id){
-        this.AuthorQuotes.splice(i,1);
-        console.log(this.AuthorQuotes);
+      if(this.AuthorQuotes['Quotes'][i]['_id'] == id){
+        this.AuthorQuotes['Quotes'].splice(i,1);
+        console.log(this.AuthorQuotes['Quotes']);
       }
     }
     let obs = this._httpService.EditAuthor(this.AuthorId,this.AuthorQuotes)

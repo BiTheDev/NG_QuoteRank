@@ -12,5 +12,5 @@
     /></p>
     <p>{{ title.errors | json }}</p> 
      <p>{{ title.valid | json }}</p> 
-  <button type="submit">Create</button>
+  <button *ngIf="title.valid" type="submit">Create</button>
 </form>

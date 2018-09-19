@@ -12,5 +12,5 @@
      /></p>
      <p>{{ name.errors | json }}</p> 
      <p>{{ name.valid | json }}</p> 
- <button class="btn btn-warning">Create</button>
+ <button *ngIf="name.valid" class="btn btn-warning">Create</button>
 </form>
