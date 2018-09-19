@@ -1,0 +1,16 @@
+<button [routerLink]="['/']">Home</button>
+<form (submit)="CreateAuthor()">
+  <p>{{newAuthor | json}}</p> 
+  <p>{{error | json}}</p> 
+ <p>Name:<input
+   type="text"
+    name="name"
+    required
+    minlength="4"
+    [(ngModel)]="newAuthor.name"
+    #name="ngModel"
+     /></p>
+     <p>{{ name.errors | json }}</p> 
+     <p>{{ name.valid | json }}</p> 
+ <button class="btn btn-warning">Create</button>
+</form>
