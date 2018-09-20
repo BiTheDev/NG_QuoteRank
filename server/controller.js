@@ -34,10 +34,8 @@ module.exports = {
                                 { $inc: { "Quotes.$.Votes": req.body.Votes }}, {new:true})
                             .then(data => console.log("Update Quote success", data)||res.json(data))
                             .catch(err => console.log("Update Quote error", err)||res.json(err)),
-    ASCSortAuthor:(req,res) =>QuoteRank.aggregate([ {$sort : {name : 1}}])
+    SortAuthor:(req,res) =>QuoteRank.find().sort({name : req.params.sort})
                             .then(data=>console.log("Sort Author success")|| res.json(data))
                             .catch(errs=>console.log("Sort Author error") || res.json(errs)),
-    DESCSortAuthor:(req,res) =>QuoteRank.aggregate([ {$sort : {name : -1}}])
-                            .then(data=>console.log("Sort Author success")|| res.json(data))
-                            .catch(errs=>console.log("Sort Author error") || res.json(errs))      
+   
     }

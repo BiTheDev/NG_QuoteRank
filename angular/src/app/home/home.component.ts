@@ -8,7 +8,6 @@ import { HttpService } from '../http.service';
 export class HomeComponent implements OnInit {
   allAuthors;
   constructor(private _httpService: HttpService) { }
-
   ngOnInit() {
     this.getAllAuthors();
   }
@@ -25,19 +24,12 @@ export class HomeComponent implements OnInit {
     obs.subscribe(data=>console.log("delete author success",data));
     this.getAllAuthors();
   }
-  ASCSortAuthor(){
-    let obs = this._httpService.ASCSortAuthor();
+  SortAuthor(sort){
+    let obs = this._httpService.SortAuthor(sort);
     obs.subscribe(data=>
       {console.log("Sort author success",data),
       this.allAuthors = data;}
     )
     
-  }
-  DESCSortAuthor(){
-    let obs = this._httpService.DESCSortAuthor();
-    obs.subscribe(data=>
-      {console.log("Sort author success",data),
-      this.allAuthors = data;}
-    )  
   }
 }

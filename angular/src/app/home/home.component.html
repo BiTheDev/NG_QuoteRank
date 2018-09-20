@@ -1,6 +1,6 @@
 <button [routerLink]="['Authors/new/']">Add New Author</button>
-<button (click)="ASCSortAuthor()">Sort by name(ASC)</button>
-<button (click)="DESCSortAuthor()">Sort by name (DESC)</button>
+<button (click)="SortAuthor(1)">Sort by name(ASC)</button>
+<button (click)="SortAuthor(-1)">Sort by name (DESC)</button>
 <button (click)="getAllAuthors()">Original Sort</button>
 <p>We have quote by:</p>
 <table class="table">

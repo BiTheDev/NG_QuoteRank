@@ -12,5 +12,6 @@
      /></p>
      <p>{{ name.errors | json }}</p> 
      <p>{{ name.valid | json }}</p> 
+     <div *ngIf = "!name.valid">Name invalid or too short</div>
  <button *ngIf="name.valid" class="btn btn-warning">Create</button>
 </form>
