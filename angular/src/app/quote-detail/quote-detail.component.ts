@@ -30,56 +30,18 @@ export class QuoteDetailComponent implements OnInit {
       this.AuthorQuotes = data;
     })
   }
-
-  VoteUp(id){
-    console.log(this.AuthorQuotes);
-    console.log(id);
-    
-    for(var i = 0; i<this.AuthorQuotes['Quotes'].length; i++){
-      console.log(this.AuthorQuotes['Quotes'][i]);
-      
-      if(this.AuthorQuotes['Quotes'][i]['_id'] == id){
-        this.AuthorQuotes['Quotes'][i]['Vote']+=1;
-        console.log(this.AuthorQuotes['Quotes'][i]['Vote']);
-        console.log(this.AuthorQuotes);
-      }
-    }
-    let obs = this._httpService.EditAuthor(this.AuthorId,this.AuthorQuotes)
-        obs.subscribe(data=>console.log("Vote up success", data));
+  Vote(id,num){
+    let obs = this._httpService.VoteQuote(id,num);
+    obs.subscribe(data=>{
+    console.log("Vote the Quote success",data);
+    this.AuthorQuotes = data;
+    })
   }
-
-  VoteDown(id){
-    console.log(this.AuthorQuotes);
-    console.log(id);
-    
-    for(var i = 0; i<this.AuthorQuotes['Quotes'].length; i++){
-      console.log(this.AuthorQuotes[i]);
-      
-      if(this.AuthorQuotes['Quotes'][i]['_id'] == id){
-        this.AuthorQuotes['Quotes'][i]['Vote']-=1;
-        console.log(this.AuthorQuotes['Quotes'][i]['Vote']);
-        console.log(this.AuthorQuotes);
-      }
-    }
-    let obs = this._httpService.EditAuthor(this.AuthorId,this.AuthorQuotes)
-        obs.subscribe(data=>console.log("Vote down success", data));
+  DeleteQuote(id){
+    let obs = this._httpService.DeleteQuote(id);
+    obs.subscribe(data=>{
+    console.log("Delete Quote success",data)
+    this.AuthorQuotes = data;
+    });
   }
-  Delete(id){
-    console.log(this.AuthorQuotes);
-    console.log(id);
-    
-    for(var i = 0; i<this.AuthorQuotes['Quotes'].length; i++){
-      console.log(this.AuthorQuotes['Quotes'][i]);
-      
-      if(this.AuthorQuotes['Quotes'][i]['_id'] == id){
-        this.AuthorQuotes['Quotes'].splice(i,1);
-        console.log(this.AuthorQuotes['Quotes']);
-      }
-    }
-    let obs = this._httpService.EditAuthor(this.AuthorId,this.AuthorQuotes)
-        obs.subscribe(data=>console.log("Vote up success", data));
-  }
-
-
-
 }

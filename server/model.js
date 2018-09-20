@@ -9,11 +9,12 @@ const AuthorSchema = new goose.Schema({
         minlength:[4, "minLength 4"]
         
     },
-    Quotes:[{title:{
+    Quotes:[{
+        title:{
         type:String,
         minlength:[5, "Your Quote is too short"]
     },
-    Vote:{
+    Votes:{
         type:Number,
         default: 0
     }},{timestamps : true}]

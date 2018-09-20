@@ -9,11 +9,11 @@
   <tbody>
     <tr *ngFor="let quote of AuthorQuotes['Quotes']">
       <td>{{quote.title}}</td>
-      <td>{{quote.Vote}}</td>
+      <td>{{quote.Votes}}</td>
       <td>
-        <button (click)="VoteUp(quote._id)">Vote Up</button>
-        <button (click)="VoteDown(quote._id)">Vote Down</button>
-        <button (click)="Delete(quote._id)">Delete</button>
+        <button (click)="Vote(quote._id, 1)">Vote Up</button>
+        <button (click)="Vote(quote._id, -1)">Vote Down</button>
+        <button (click)="DeleteQuote(quote._id)">Delete</button>
       </td>
     </tr>
   </tbody>

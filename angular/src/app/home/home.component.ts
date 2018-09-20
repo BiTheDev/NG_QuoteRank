@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     })
   }
   DeleteAuthor(id){
-    let obs = this._httpService.Delete(id);
+    let obs = this._httpService.DeleteAuthor(id);
     obs.subscribe(data=>console.log("delete author success",data));
     this.getAllAuthors();
   }
