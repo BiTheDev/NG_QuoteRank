@@ -25,4 +25,19 @@ export class HomeComponent implements OnInit {
     obs.subscribe(data=>console.log("delete author success",data));
     this.getAllAuthors();
   }
+  ASCSortAuthor(){
+    let obs = this._httpService.ASCSortAuthor();
+    obs.subscribe(data=>
+      {console.log("Sort author success",data),
+      this.allAuthors = data;}
+    )
+    
+  }
+  DESCSortAuthor(){
+    let obs = this._httpService.DESCSortAuthor();
+    obs.subscribe(data=>
+      {console.log("Sort author success",data),
+      this.allAuthors = data;}
+    )  
+  }
 }

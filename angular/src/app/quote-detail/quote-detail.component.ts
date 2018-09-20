@@ -27,21 +27,21 @@ export class QuoteDetailComponent implements OnInit {
     let obs = this._httpService.GetAuthor(this.AuthorId);
     obs.subscribe(data=>
       {console.log("Get Author Quote Success",data);
-      this.AuthorQuotes = data;
+      this.AuthorQuotes = data['Quotes'];
     })
   }
   Vote(id,num){
     let obs = this._httpService.VoteQuote(id,num);
     obs.subscribe(data=>{
     console.log("Vote the Quote success",data);
-    this.AuthorQuotes = data;
+    this.AuthorQuotes = data['Quotes'];
     })
   }
   DeleteQuote(id){
     let obs = this._httpService.DeleteQuote(id);
     obs.subscribe(data=>{
     console.log("Delete Quote success",data)
-    this.AuthorQuotes = data;
+    this.AuthorQuotes = data['Quotes'];
     });
   }
 }

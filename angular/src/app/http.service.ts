@@ -31,5 +31,11 @@ export class HttpService {
   DeleteQuote(quote_id){
     return this._http.delete("/Quote/destory/" + quote_id);
   }
+  ASCSortAuthor(){
+    return this._http.get("/AllAuthor/Sort/asc");
+  }
+  DESCSortAuthor(){
+    return this._http.get("/AllAuthor/Sort/desc")
+  }
 
 }
