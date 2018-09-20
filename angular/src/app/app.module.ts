@@ -10,6 +10,7 @@ import { NewAuthorComponent } from './new-author/new-author.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { EditAuthorComponent } from './edit-author/edit-author.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     NewQuoteComponent,
     QuoteDetailComponent,
     NewAuthorComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    EditAuthorComponent
   ],
   imports: [
     BrowserModule,

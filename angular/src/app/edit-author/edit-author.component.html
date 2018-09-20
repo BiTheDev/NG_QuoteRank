@@ -1,0 +1,19 @@
+<div class="container">
+  <form (submit)="EditAuthor()">
+      <p>{{UpdateAuthor | json}}</p> 
+    <p>Name:<input
+      type="text"
+       name="name"
+       required
+       minlength="4"
+       [(ngModel)]="UpdateAuthor.name"
+       value="UpdateAuthor.name"
+       #name="ngModel"
+        /></p>
+        <p>{{ name.errors | json }}</p> 
+     <p>{{ name.valid | json }}</p> 
+     <div *ngIf = "!name.valid">Name invalid or too short</div>
+ <button *ngIf="name.valid" class="btn btn-warning">Update</button>
+  </form>
+  <button [routerLink]="['/']">Cancel</button>
+</div>

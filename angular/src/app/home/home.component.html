@@ -12,8 +12,9 @@
     <tr *ngFor="let author of allAuthors">
       <td>{{author.name}}</td>
       <td>
-        <button class="btn btn-success" [routerLink]="['/Quotes/',author._id]">View Quotes</button>
+        <button class="btn btn-success" [routerLink]="['/Quotes',author._id]">View Quotes</button>
         <button class="btn btn-danger" (click)="DeleteAuthor(author._id)">Delete</button>
+        <button class="btn btn-warning" [routerLink]="['/Authors/edit',author._id]">Edit</button>
       </td>
     </tr>
   </tbody>
